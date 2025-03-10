@@ -12,12 +12,10 @@ class ContactsController extends GetxController {
   }
 
   void getLocalContacts() async {
-    print('object');
     isLoading(true);
     localContacts.assignAll(
       await FlutterContacts.getContacts(withProperties: true, withPhoto: true),
     );
-    print('localContacts.length : ${localContacts.length}');
 
     isLoading(false);
   }
