@@ -3,9 +3,17 @@
 <plist version="1.0">
 <dict>
 
-  <key>NSContactsUsageDescription</key>
+	  <key>NSContactsUsageDescription</key>
     <string>Reason we need access to the contact list</string>
 	
+<!-- url_launcher -->
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+	<string>sms</string>
+	<string>tel</string>
+	</array>
+
+
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>

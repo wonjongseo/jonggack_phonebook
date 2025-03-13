@@ -4,13 +4,17 @@ import 'package:jonggack_phonebook/views/contacts/contacts_page.dart';
 import 'package:jonggack_phonebook/views/keypad/keypad_page.dart';
 
 class RootController extends GetxController {
-  RxInt pageIndex = 0.obs;
-  late PageController pageController;
+  int pageIndex = 0;
 
   @override
   void onInit() {
-    pageController = PageController(initialPage: pageIndex.value);
     super.onInit();
+  }
+
+  void onTapBottomNavigation(int index) {
+    pageIndex = index;
+
+    update();
   }
 
   List<Widget> bodys = [ContactsPage(), KeypadPage()];

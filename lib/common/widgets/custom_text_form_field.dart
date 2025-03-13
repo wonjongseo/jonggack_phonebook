@@ -12,6 +12,7 @@ class CustomTextFormField extends StatelessWidget {
     this.keyboardType,
     this.onTap,
     this.hintStyle,
+    this.onChanged,
     this.onFieldSubmitted,
     this.maxLength,
   }) : super(key: key);
@@ -23,6 +24,7 @@ class CustomTextFormField extends StatelessWidget {
   final TextEditingController? controller;
   final Widget? sufficIcon;
   final Function()? onTap;
+  final Function(String)? onChanged;
   final Function(String?)? onFieldSubmitted;
   final TextInputType? keyboardType;
   final int? maxLength;
@@ -38,6 +40,7 @@ class CustomTextFormField extends StatelessWidget {
         children: [
           Expanded(
             child: TextFormField(
+              onChanged: onChanged,
               maxLength: maxLength,
               keyboardType: keyboardType,
               onFieldSubmitted: onFieldSubmitted,
@@ -49,28 +52,36 @@ class CustomTextFormField extends StatelessWidget {
               decoration: InputDecoration(
                 hintStyle: hintStyle,
                 counterText: "",
-                prefixIconConstraints:
-                    const BoxConstraints(minHeight: 0, minWidth: 0),
-                suffixIconConstraints:
-                    const BoxConstraints(minHeight: 0, minWidth: 0),
-                suffixIcon: sufficIcon != null
-                    ? Padding(
-                        padding: EdgeInsets.only(right: 10),
-                        child: sufficIcon,
-                      )
-                    : null,
-                contentPadding: maxLines != null
-                    ? EdgeInsets.all(15)
-                    : EdgeInsets.symmetric(horizontal: 15),
+                prefixIconConstraints: const BoxConstraints(
+                  minHeight: 0,
+                  minWidth: 0,
+                ),
+                suffixIconConstraints: const BoxConstraints(
+                  minHeight: 0,
+                  minWidth: 0,
+                ),
+                suffixIcon:
+                    sufficIcon != null
+                        ? Padding(
+                          padding: EdgeInsets.only(right: 10),
+                          child: sufficIcon,
+                        )
+                        : null,
+                contentPadding:
+                    maxLines != null
+                        ? EdgeInsets.all(15)
+                        : EdgeInsets.symmetric(horizontal: 15),
                 hintText: hintText,
-                focusedBorder:
-                    const OutlineInputBorder(borderSide: BorderSide.none),
-                enabledBorder:
-                    const OutlineInputBorder(borderSide: BorderSide.none),
+                focusedBorder: const OutlineInputBorder(
+                  borderSide: BorderSide.none,
+                ),
+                enabledBorder: const OutlineInputBorder(
+                  borderSide: BorderSide.none,
+                ),
               ),
             ),
           ),
-          if (widget != null) widget!
+          if (widget != null) widget!,
         ],
       ),
     );
