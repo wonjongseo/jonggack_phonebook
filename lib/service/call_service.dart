@@ -1,5 +1,3 @@
-///  Copyright (c) 2011-2020, Zingaya, Inc. All rights reserved.
-
 import 'package:flutter_callkit_voximplant/flutter_callkit_voximplant.dart';
 import 'package:uuid/uuid.dart';
 

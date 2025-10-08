@@ -42,16 +42,17 @@ class ContactsController extends GetxController with WidgetsBindingObserver {
       aaa[identifiedNumber.number.toString().replaceFirst('81', '0')] =
           identifiedNumber.number.toString();
     }
-    print('aaa : ${aaa}');
 
     super.onInit();
   }
 
   void test() {
     callService.addIdentifiedNumber('817055608528', '랄랄라');
+    callService.addIdentifiedNumber('818048058834', '아야탕탕탕');
   }
 
   void test2() async {
+    callService.reloadExtension();
     var a = await callService.getIdentifiedNumbers();
     for (var b in a) {
       print('b.label : ${b.label}');
